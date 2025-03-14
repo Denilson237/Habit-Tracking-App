@@ -1,6 +1,6 @@
 # User Story
 
-## User Stories For Login/Registration Screen
+## User Stories For Login/Registration Screen.
 
 ### User Story 1: Application Registration
 
