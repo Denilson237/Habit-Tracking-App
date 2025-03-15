@@ -8,14 +8,14 @@ class LoginScreen extends StatefulWidget {
   _LoginScreenState createState() => _LoginScreenState();
 }
 class _LoginScreenState extends State<LoginScreen> {
-  final _usernameController = TextEditingController();
+  final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   // Default credentials
   final String defaultUsername = 'testuser';
   final String defaultPassword = 'password123';
   final String defaultemail = 'test@gmail.com';
   void _login() async {
-    final username = _usernameController.text;
+    final username = _emailController.text;
     final password = _passwordController.text;
     SharedPreferences prefs = await SharedPreferences.getInstance();
     // Check against default credentials
@@ -76,11 +76,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     borderRadius: BorderRadius.circular(30),
                   ),
                   child: TextField(
-                    controller: _usernameController,
+                    controller: _emailController,
                     decoration: InputDecoration(
                       prefixIcon:
                           Icon(Icons.email, color: Colors.blue.shade700),
-                      hintText: 'Enter Username',
+                      hintText: 'email',
                       border: InputBorder.none,
                       contentPadding:
                           EdgeInsets.symmetric(horizontal: 20, vertical: 15),
