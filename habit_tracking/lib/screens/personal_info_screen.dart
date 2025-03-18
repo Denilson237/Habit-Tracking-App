@@ -85,20 +85,14 @@ class _PersonalInfoScreenState extends State<PersonalInfoScreen> {
             const SizedBox(height: 16),
             _buildTextField(
               controller: _usernameController,
-              label: 'Username',
-              icon: Icons.alternate_email,
+              label: 'Name',
+              icon: Icons.email,
             ),
             const SizedBox(height: 42),
             _buildTextField(
               controller: _emailController,
-              label: 'email',
-              icon: Icons.mail,
-            ),
-            const SizedBox(height: 42),
-            _buildTextField(
-              controller: _passwordController,
-              label: 'Password',
-              icon: Icons.lock,
+              label: 'Username',
+              icon: Icons.alternate_email,
             ),
             const SizedBox(height: 16),
             Text(
