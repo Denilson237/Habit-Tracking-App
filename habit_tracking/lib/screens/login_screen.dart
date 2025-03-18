@@ -35,9 +35,11 @@ class _LoginScreenState extends State<LoginScreen> {
       //empty out shared preferences
       await prefs.clear();
       Fluttertoast.showToast(
-        msg: "The username or password was incorrect",
+        msg: "⚠️ The username or password was incorrect",
         toastLength: Toast.LENGTH_SHORT,
         gravity: ToastGravity.BOTTOM,
+        webPosition: "center",
+        webBgColor: "linear-gradient(to right, #ff0000, #cc0000)", // Rouge
         backgroundColor: Colors.red,
         textColor: Colors.white,
         fontSize: 16.0,
@@ -80,7 +82,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     decoration: InputDecoration(
                       prefixIcon:
                           Icon(Icons.email, color: Colors.blue.shade700),
-                      hintText: 'email',
+                      hintText: 'Enter Username',
                       border: InputBorder.none,
                       contentPadding:
                           EdgeInsets.symmetric(horizontal: 20, vertical: 15),
