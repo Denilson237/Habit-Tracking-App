@@ -53,7 +53,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       });
     } catch (e) {
       // Handle error
-      _showToast('Error fetching countries');
+      _showToast('⚠️ Error fetching countries');
     }
   }
   void _showToast(String message) {
@@ -61,9 +61,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
       msg: message,
       toastLength: Toast.LENGTH_SHORT,
       gravity: ToastGravity.BOTTOM,
+      webPosition: "center",
+      webBgColor: "linear-gradient(to right, #ff0000, #cc0000)", // Rouge
       backgroundColor: Colors.red,
       textColor: Colors.white,
       fontSize: 16.0,
+      
     );
   }
   void _register() async {
@@ -71,7 +74,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     final password = _passwordController.text;
     final username = _usernameController.text;
     if (username.isEmpty || email.isEmpty || password.isEmpty) {
-      _showToast('Please fill in all fields');
+      _showToast('⚠️ Please fill in all fields');
       return;
     }
     SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -147,9 +150,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 _buildInputField(
-                    _usernameController, 'Username', Icons.alternate_email),
+                    _usernameController, 'Name', Icons.person),
                 SizedBox(height: 10),
-                _buildInputField(_emailController, 'Email', Icons.email),
+                _buildInputField(_emailController, 'Username', Icons.alternate_email),
                 SizedBox(height: 10),
                 _buildInputField(_passwordController, 'Password', Icons.lock),
                 SizedBox(height: 10),
@@ -204,7 +207,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
                 SizedBox(height: 20),
                 Center(
-                  child: Row(
+                  child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       ElevatedButton(
@@ -226,31 +229,19 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           ),
                         ),
                       ),
-                      SizedBox(width: 20),
-                      ElevatedButton(
-                        onPressed: () {
+                TextButton(
+                  onPressed: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => LoginScreen()),
                     );
                   },
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.blue.shade600,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30.0),
-                          ),
-                          padding:
-                              EdgeInsets.symmetric(horizontal: 50, vertical: 15),
-                        ),
-                        child: Text(
-                          'Login',
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
+                 
+                  child: Text(
+                    'Already have an account? Login',
+                    style: TextStyle(color: Colors.white, fontSize: 16),
+                  ),
+                ),
                     ],
                   ),
                 ),
